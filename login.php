@@ -47,6 +47,7 @@
         ?>
            <!-- <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http://localhost/Practica08 php/Indice.php"/> -->
         <?php
+        
         }
         mysqli_close($conexion);;
     }   
