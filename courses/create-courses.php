@@ -8,20 +8,20 @@
 </head>
 <body>
     <?php
-    if (!empty($_POST['CreateCourse'])){
-        $code = $_POST['code'];
+    if ($_POST){
         $name = $_POST['name'];
         $description = $_POST['description'];
         $hours = $_POST['hours'];
-        $start_date = $_POST['start_date'];
-        $end_date = $_POST['end_date'];
-        $teacher_id = $_POST['teacher_id'];
+        $startDate = $_POST['startDate'];
+        $endDate = $_POST['endDate'];
+        $teacherID = $_POST['teacherID'];
     
         $conexion = mysqli_connect("localhost","root","","infobdn");
         if($conexion == false){
             mysqli_connect_errno();
         }else{
-            $sql = "INSERT INTO courses (code,name,description,hours,start_date,end_date,teacher_id) VALUES (NULL,'$name','$description','$hours','$start_date','$end_date','$teacher_id')";
+
+            $sql = "INSERT INTO courses (code,name,description,hours,startDate,endDate,teacherID) VALUES (NULL,'$name','$description','$hours','$startDate','$endDate','$teacherID')";
             $consulta = mysqli_query($conexion, $sql);
             mysqli_close($conexion);
         }
@@ -38,19 +38,40 @@
                 <input type="text"  name="description" maxlength="10" id = "description" required/><br>
             
             <label for="hours"> hours:</label >
-                <input type="text"  name="hours" maxlength="10" id = "hours" required/><br>
+                <input type="number"  name="hours"  id = "hours" required/><br>
         
-            <label for="start_date"> name:</label >
-                <input type="text"  name="start_date" maxlength="10" id = "start_date" required/><br>
+            <label for="startDate"> start_date:</label >
+                <input type="date"  name="startDate"  id = "startDate" required/><br>
     
-            <label for="end_date"> name:</label >
-                <input type="text"  name="end_date" maxlength="10" id = "end_date" required/><br>
+            <label for="endDate"> end_date:</label >
+                <input type="date"  name="endDate"  id = "endDate" required/><br>
 
-            <label for="teacher_id"> name:</label ><!-- Añadir un selec desplegable de todos los profes-->
-                <input type="text"  name="teacher_id" maxlength="10" id = "teacher_id" required/><br> 
+            <label for="teacherID"> teacher_id:</label ><!-- Añadir un selec desplegable de todos los profes-->
+                <select name = 'teacherID'>
+                    <option value="0">Select one option</option>
+                    <?php
+                        $conexion = mysqli_connect("localhost","root","","infobdn");
+                        if($conexion == false){
+                            mysqli_connect_errno();
+                        }else{
+                            $sql = "SELECT name, id FROM teachers";
+                            $teachers = mysqli_query($conexion, $sql);
+                            $num_teachers = mysqli_num_rows($teachers);
+                       
+                            
+                            for ($i=0; $i<$num_teachers; $i++){
+                                $teacher = mysqli_fetch_array($teachers);
+                                echo "<option value='".$teacher['id']."' >".$teacher["name"]."</option>";
+                            }
+                            
+                        }
+                    ?>
+                </select><br> 
             <input type="submit" name="create" value="create"/>
+            
         </form>
     <?php
+            
     }?>
     
 </body>
