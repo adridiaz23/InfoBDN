@@ -13,8 +13,18 @@
         $surname = $_POST['surname'];
         $passwd = $_POST['passwd'];
         $title = $_POST['title'];
-        $photo = $_POST['photo'];
 
+        if (is_uploaded_file ($_FILES['photo']['tmp_name'])){
+            $nombreDirectorio = "img/";
+            $idUnico = time();
+            $nombreFichero = $idUnico . "-" .
+            $_FILES['imagen']['name'];
+            move_uploaded_file ($_FILES['photo']['tmp_name'],
+            $nombreDirectorio . $nombreFichero);
+        }
+        else{
+            print ("No se ha podido subir el fichero\n");
+        }
         $conexion = mysqli_connect("localhost","root","","infobdn");
         if($conexion == false){
             mysqli_connect_errno();
@@ -42,7 +52,7 @@
                     <input type="text"  name="title" maxlength="15" id = "title" required/><br>
         
                 <label for="photo"> photo:</label >
-                    <input type="text"  name="photo" maxlength="250" id = "photo" required/><br>
+                    <input type="file"  name="photo" id = "photo" required/><br>
                  <input type="submit" name="create" value="create"/>
                     
         </form>
