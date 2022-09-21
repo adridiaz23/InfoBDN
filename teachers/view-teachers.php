@@ -30,6 +30,8 @@
             echo "<th>surname</th>";
             echo "<th>title</th>";
             echo "<th>photo</th>";
+            echo "<th>Modify</th>";
+            echo "<th>Delete</th>";
             echo "</tr>";
             for ($i =0 ; $i < $numlinies ; $i++){
                 $linea = mysqli_fetch_array($consulta);
@@ -40,6 +42,8 @@
                 echo "<td>".$linea[2]."</td>";
                 echo "<td>".$linea[3]."</td>";
                 echo "<td>".$linea[4]."</td>";
+                echo "<td><a href='modify-teachers.php?num= ".$linea[0]."'>Modify</a></td>";
+                echo "<td><a href='delete-teachers.php?num= ".$linea[0]."'>Delete</a></td>";
                 echo"</tr>";
                 
             }

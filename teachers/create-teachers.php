@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-    if (!empty($_POST['CreateTeacher'])){
+    if ($_POST){
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $passwd = $_POST['passwd'];
@@ -20,6 +20,7 @@
             mysqli_connect_errno();
         }else{
             $sql = "INSERT INTO teachers (id,name,surname,passwd,title,photo) VALUES (NULL,'$name','$surname','$passwd','$title','$photo')";
+            
             $consulta = mysqli_query($conexion, $sql);
             mysqli_close($conexion);
         }

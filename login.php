@@ -17,7 +17,7 @@
         </label >
             <input type="password"  maxlength="30" id = "Password" name="Password" required /><br>
         <input type="submit" name="subir" value="Aceptar"/>
-    </form>
+</form>
     <?php
     $email = $_POST['CompteDeMail'];
     $pass = $_POST['Password'];
