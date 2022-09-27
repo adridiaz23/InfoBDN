@@ -39,7 +39,7 @@
        //si son correctos ejecuta esta parte de código
         if(mysqli_num_rows($consulta)>0){
             ?>
-                <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http://localhost/InfoBDN/InfoBDN/sesion.php"/>
+                <META HTTP-EQUIV="REFRESH" CONT ENT="2;URL=http://localhost/InfoBDN/InfoBDN/sesion.php"/>
             <?php
        //Si no querrá decir que uno de los campos es erróneo y nos redirigirá a la página de login otra vez
         }else{

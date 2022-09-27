@@ -1,0 +1,56 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu nav nav nav nav menu'
+      'menu main main main main menu';
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    border: 1px solid black;
+  }
+
+.container{
+    width: 90%;
+    margin: auto;
+    border: 1px solid black;
+}
+header{
+    grid-area: header;
+   border: 1px solid black;
+}
+.logo{
+    height: 35%;
+    width: 35%;
+    border: 1px solid black;
+}
+.redes{
+    height: 5%;
+    width: 5%;
+    display: inline-block;
+}
+.acount{
+    width: 20%;
+    border: 1px solid black;
+    float: right;
+}
+.link-acount{
+    width: 50%;
+    border: 1px solid black;
+    display: inline-block;
+}
+nav{
+    grid-area: nav;
+    border: 1px solid black;
+
+}
+menu{
+    grid-area: menu;
+    border: 1px solid black;
+
+}
+main{
+    grid-area: main;
+}
