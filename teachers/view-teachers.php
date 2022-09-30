@@ -1,3 +1,4 @@
+<?php include("../funciones.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
     <?php
-    $conexion = mysqli_connect("localhost","root","","infobdn");
+    $conexion = conectar();
 
     if($conexion == false){
         mysqli_connect_errno();
@@ -21,34 +22,7 @@
             mysqli_error($conexion); 
         }
         else{
-            //dibujar tabla
-            $numlinies = mysqli_num_rows($consulta);
-            echo"<table>";
-            echo "<tr>";
-            echo"<th>id</th>";
-            echo"<th>name</th>";
-            echo "<th>surname</th>";
-            echo "<th>title</th>";
-            echo "<th>photo</th>";
-            echo "<th>Modify</th>";
-            echo "<th>Delete</th>";
-            echo "</tr>";
-            for ($i =0 ; $i < $numlinies ; $i++){
-                $linea = mysqli_fetch_array($consulta);
-            
-                echo "<tr>";
-                echo "<td>".$linea[0]."</td>";
-                echo "<td>".$linea[1]."</td>";
-                echo "<td>".$linea[2]."</td>";
-                echo "<td>".$linea[3]."</td>";
-                echo "<td>".$linea[4]."</td>";
-                echo "<td><a href='modify-teachers.php?num= ".$linea[0]."'>Modify</a></td>";
-                echo "<td><a href='delete-teachers.php?num= ".$linea[0]."'>Delete</a></td>";
-                echo"</tr>";
-                
-            }
-            echo "</tr>";
-            echo"</table>"; 
+            viewTeachers($consulta);
         }
     }
     ?>

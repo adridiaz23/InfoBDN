@@ -1,7 +1,9 @@
+<?php include("../funciones.php")?>
 <?php
+
 $course = $_GET["num"];
 
-$conexion = mysqli_connect("localhost","root","","infobdn");
+$conexion = conectar();
 if($conexion == false){
     mysqli_connect_errno();
 }

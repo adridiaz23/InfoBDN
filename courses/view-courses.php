@@ -1,3 +1,4 @@
+<?php include("../funciones.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
     <?php
-    $conexion = mysqli_connect("localhost","root","","infobdn");
+    $conexion = conectar();
 
     if($conexion == false){
         mysqli_connect_errno();

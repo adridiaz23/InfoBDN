@@ -1,3 +1,4 @@
+<?php include("../funciones.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
             
             $teacher = $_POST['teacher'];
 
-            $conexion = mysqli_connect("localhost","root","","infobdn");
+            $conexion = conectar();
 
             if($conexion == false){
                 mysqli_connect_errno();
@@ -36,7 +37,7 @@
         else{//dibujamos el modificar
             $teacherID = $_GET["num"];
 
-            $conexion = mysqli_connect("localhost","root","","infobdn");
+            $conexion = conectar();
     
             if($conexion == false){
                 mysqli_connect_errno();
@@ -49,27 +50,7 @@
                     mysqli_error($conexion); 
                 }
                 else{
-                    ?>
-                    <h2>Modify Teacher</h2>
-                    <form name="UpdateTeacher" method="POST" action="#" >
-                            <label for="name"> name:</label >
-                                <input type="text"  name="name" maxlength="10" id = "name" required value="<?php echo $teacher[1] ?>"/><br>
-                            
-                            <label for="surname"> surname:</label >
-                                <input type="text"  name="surname" maxlength="15" id = "surname" required value="<?php echo $teacher[2] ?>"/><br>
-                            
-                            <label for="passwd"> passwd:</label >
-                                <input type="password"  name="passwd" maxlength="30" id = "passwd" required value="<?php echo $teacher[3] ?>"/><br>
-                        
-                            <label for="title"> title:</label >
-                                <input type="text"  name="title" maxlength="15" id = "title" required value="<?php echo $teacher[4] ?>"/><br>
-                    
-                            <label for="photo"> photo:</label >
-                                <input type="text"  name="photo" maxlength="250" id = "photo" required value="<?php echo $teacher[5] ?>"/><br>
-                            <input type="submit" name="update" value="update"/>        
-                            <input type="hidden" name= "teacher" value="<?php echo $teacher[0] ?>">
-                    </form>
-                <?php
+                    formModifyTeacher($teacher);
                 }
             }
         }

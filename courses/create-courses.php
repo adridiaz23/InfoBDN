@@ -1,3 +1,4 @@
+<?php include("../funciones.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
         $endDate = $_POST['endDate'];
         $teacherID = $_POST['teacherID'];
     
-        $conexion = mysqli_connect("localhost","root","","infobdn");
+        $conexion = conectar();
         if($conexion == false){
             mysqli_connect_errno();
         }else{
@@ -50,7 +51,7 @@
                 <select name = 'teacherID'>
                     <option value="0">Select one option</option>
                     <?php
-                        $conexion = mysqli_connect("localhost","root","","infobdn");
+                        $conexion = conectar();
                         if($conexion == false){
                             mysqli_connect_errno();
                         }else{

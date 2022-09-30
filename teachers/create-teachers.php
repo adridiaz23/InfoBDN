@@ -1,3 +1,4 @@
+<?php include("../funciones.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
         else{
             print ("No se ha podido subir el fichero\n");
         }
-        $conexion = mysqli_connect("localhost","root","","infobdn");
+        $conexion = conectar();
         if($conexion == false){
             mysqli_connect_errno();
         }else{
@@ -36,27 +37,7 @@
         }
 
     }else{
-        ?>
-        <h2>Create Teacher</h2>
-        <form name="CreateTeacher" method="POST" action="#" >
-                <label for="name"> name:</label >
-                    <input type="text"  name="name" maxlength="10" id = "name" required/><br>
-                
-                <label for="surname"> surname:</label >
-                    <input type="text"  name="surname" maxlength="15" id = "surname" required/><br>
-                
-                <label for="passwd"> passwd:</label >
-                    <input type="password"  name="passwd" maxlength="30" id = "passwd" required/><br>
-            
-                <label for="title"> title:</label >
-                    <input type="text"  name="title" maxlength="15" id = "title" required/><br>
-        
-                <label for="photo"> photo:</label >
-                    <input type="file"  name="photo" id = "photo" required/><br>
-                 <input type="submit" name="create" value="create"/>
-                    
-        </form>
-<?php
+        formCreateTeacher();
     }
 ?>
 </body>
