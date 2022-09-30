@@ -14,31 +14,41 @@
         $surname = $_POST['surname'];
         $passwd = $_POST['passwd'];
         $title = $_POST['title'];
-
+        
         if (is_uploaded_file ($_FILES['photo']['tmp_name'])){
             $nombreDirectorio = "img/";
             $idUnico = time();
-            $nombreFichero = $idUnico . "-" .
-            $_FILES['imagen']['name'];
-            move_uploaded_file ($_FILES['photo']['tmp_name'],
-            $nombreDirectorio . $nombreFichero);
-        }
-        else{
-            print ("No se ha podido subir el fichero\n");
-        }
-        $conexion = conectar();
-        if($conexion == false){
-            mysqli_connect_errno();
-        }else{
-            $sql = "INSERT INTO teachers (id,name,surname,passwd,title,photo) VALUES (NULL,'$name','$surname','$passwd','$title','$photo')";
-            
-            $consulta = mysqli_query($conexion, $sql);
-            mysqli_close($conexion);
+            $nombreFichero = $idUnico . "-" . $_FILES['photo']['name'];
+            $directorio = $nombreDirectorio . $nombreFichero;
+            move_uploaded_file ($_FILES['photo']['tmp_name'], $nombreDirectorio . $nombreFichero);
+            $tamaño = $_FILES["photo"]["size"];
+            $tipo = $_FILES["photo"]["type"];
         }
 
-    }else{
-        formCreateTeacher();
-    }
+        //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
+        /*if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
+            echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/> - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+            ?>
+            <!-- <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=create-teachers.php"/> -->
+            <?php 
+            
+        }   
+        else{*/
+            $conexion = conectar();
+            if($conexion == false){
+                mysqli_connect_errno();
+            }else{
+                $sql = "INSERT INTO teachers (id,name,surname,passwd,title,photo) VALUES (NULL,'$name','$surname','$passwd','$title','$directorio ')";
+                
+                $consulta = mysqli_query($conexion, $sql);
+                mysqli_close($conexion);
+            }
+        //}
+        
+    }   
+    else{
+            formCreateTeacher();
+        }
 ?>
 </body>
 </html>

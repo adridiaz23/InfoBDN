@@ -22,8 +22,8 @@ function viewTeachers($consulta){
                 echo "<td>".$linea[0]."</td>";
                 echo "<td>".$linea[1]."</td>";
                 echo "<td>".$linea[2]."</td>";
-                echo "<td>".$linea[3]."</td>";
                 echo "<td>".$linea[4]."</td>";
+                echo "<td>".$linea[5]."</td>";
                 echo "<td><a href='modify-teachers.php?num= ".$linea[0]."'>Modify</a></td>";
                 echo "<td><a href='delete-teachers.php?num= ".$linea[0]."'>Delete</a></td>";
                 echo"</tr>";
@@ -32,7 +32,7 @@ function viewTeachers($consulta){
             echo"</table>"; 
 }
 
-function tableModifyTeacher($teacher){
+function formModifyTeacher($teacher){
     ?>
     <h2>Modify Teacher</h2>
     <form name="UpdateTeacher" method="POST" action="#" >
@@ -49,10 +49,34 @@ function tableModifyTeacher($teacher){
             <input type="text"  name="title" maxlength="15" id = "title" required value="<?php echo $teacher[4] ?>"/><br>
                     
         <label for="photo"> photo:</label >
-            <input type="text"  name="photo" maxlength="250" id = "photo" required value="<?php echo $teacher[5] ?>"/><br>
+        <a href="modify-photo-teacher.php?num= '<?php echo $teacher[0] ?>'"> MODIFICA</a><br>
             <input type="submit" name="update" value="update"/>        
             <input type="hidden" name= "teacher" value="<?php echo $teacher[0] ?>">
                     </form>
+    <?php
+}
+
+function formCreateTeacher(){
+    ?>
+        <h2>Create Teacher</h2>
+        <form name="CreateTeacher" method="POST" action="#" enctype="multipart/form-data" >
+                <label for="name"> name:</label >
+                    <input type="text"  name="name" maxlength="10" id = "name" required/><br>
+                
+                <label for="surname"> surname:</label >
+                    <input type="text"  name="surname" maxlength="15" id = "surname" required/><br>
+                
+                <label for="passwd"> passwd:</label >
+                    <input type="password"  name="passwd" maxlength="30" id = "passwd" required/><br>
+            
+                <label for="title"> title:</label >
+                    <input type="text"  name="title" maxlength="15" id = "title" required/><br>
+        
+                <label for="photo"> photo:</label >
+                    <input type="file"  name="photo" id = "photo" required/><br>
+                 <input type="submit" name="create" value="create"/>
+                    
+        </form>
     <?php
 }
 

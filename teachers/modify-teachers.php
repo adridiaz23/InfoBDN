@@ -14,8 +14,7 @@
             $surname = $_POST['surname'];
             $passwd = $_POST['passwd'];
             $title = $_POST['title'];
-            $photo = $_POST['photo'];
-            
+            //$photo = $_POST['photo'];
             $teacher = $_POST['teacher'];
 
             $conexion = conectar();
@@ -24,7 +23,7 @@
                 mysqli_connect_errno();
             }
             else{
-                $sql = "UPDATE teachers SET name ='$name', surname = '$surname', passwd= '$passwd', title= '$title', photo= '$photo' WHERE id = '$teacher'";
+                $sql = "UPDATE teachers SET name ='$name', surname = '$surname', passwd= '$passwd', title= '$title' WHERE id = '$teacher'";
                 $consulta = mysqli_query($conexion, $sql);
                 if ($consulta== false){
                     mysqli_error($conexion); 
