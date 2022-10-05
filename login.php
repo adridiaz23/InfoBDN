@@ -7,18 +7,8 @@
     <title>Login</title>
 </head>
 <body>
-<form name="formulariLogin" method="POST" action="#" >
-        <label for="CompteDeMail">
-            Compte de mail:   
-        </label >
-            <input type="email"  name="CompteDeMail" maxlength="30" id = "CompteDeMail" required/><br>
-        <label for="Password">
-            Password:
-        </label >
-            <input type="password"  maxlength="30" id = "Password" name="Password" required /><br>
-        <input type="submit" name="subir" value="Aceptar"/>
-</form>
-    <?php
+<?php
+if ($_POST){
     $email = $_POST['CompteDeMail'];
     $pass = $_POST['Password'];
     
@@ -50,9 +40,22 @@
         
         }
         mysqli_close($conexion);;
-    }   
-
+    }  
+}else{
     ?>
-
+    <form name="formulariLogin" method="POST" action="#" >
+        <label for="CompteDeMail">
+            Compte de mail:   
+        </label >
+            <input type="email"  name="CompteDeMail" maxlength="30" id = "CompteDeMail" required/><br>
+        <label for="Password">
+            Password:
+        </label >
+            <input type="password"  maxlength="30" id = "Password" name="Password" required /><br>
+        <input type="submit" name="subir" value="Aceptar"/>
+    </form>
+    <?php
+}
+?>
 </body>
 </html>
