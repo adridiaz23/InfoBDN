@@ -10,6 +10,7 @@
 <body>
 <?php
     if ($_POST){
+        $dni = $_POST['dni'];
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $passwd = $_POST['passwd'];
@@ -38,7 +39,7 @@
             if($conexion == false){
                 mysqli_connect_errno();
             }else{
-                $sql = "INSERT INTO teachers (id,name,surname,passwd,title,photo) VALUES (NULL,'$name','$surname','$passwd','$title','$directorio ')";
+                $sql = "INSERT INTO teachers (id,dni,name,surname,passwd,title,photo) VALUES (NULL,'$dni','$name','$surname','$passwd','$title','$directorio ')";
                 
                 $consulta = mysqli_query($conexion, $sql);
                 mysqli_close($conexion);

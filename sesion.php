@@ -1,3 +1,4 @@
+<?php include("funciones.php");session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,8 @@
     <title>Sesion</title>
 </head>
 <body>
-    Bienvenido Iniciada sesión
+<?php
+    echo "Hola".$_SESSION['name']."eres".$_SESSION['type'];
+?>
 </body>
 </html>

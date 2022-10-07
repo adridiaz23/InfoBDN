@@ -1,9 +1,10 @@
-<?php
+<?php 
+
 function conectar(){
     return mysqli_connect("localhost","root","","infobdn");
 }
 
-function viewTeachers($consulta){
+function viewTeachers($consulta){//de aqui hasta funcion form create teachers quitar de funciones y asignar al php propio de cada uno incluida esta tmb
     $numlinies = mysqli_num_rows($consulta);
             echo"<table>";
             echo "<tr>";
@@ -60,7 +61,9 @@ function formCreateTeacher(){
     ?>
         <h2>Create Teacher</h2>
         <form name="CreateTeacher" method="POST" action="#" enctype="multipart/form-data" >
-                <label for="name"> name:</label >
+            <label for="dni"> dni:</label >
+                    <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>    
+            <label for="name"> name:</label >
                     <input type="text"  name="name" maxlength="10" id = "name" required/><br>
                 
                 <label for="surname"> surname:</label >
@@ -78,8 +81,19 @@ function formCreateTeacher(){
                     
         </form>
     <?php
-}
+}//de aqui hasta arriba view teachers quitar de funciones y asignar al php propio de cada uno
+?>
+ <?php
+function createSesion($consulta,$type,$conexion){
 
+    $datos = mysqli_fetch_array($consulta);
+
+    $_SESSION['dni'] = $datos[1];
+    $_SESSION['name'] = $datos[2];
+    $_SESSION['type'] = $type;
+    mysqli_close($conexion);
+
+}
 
 
 ?>
