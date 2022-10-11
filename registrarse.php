@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
     <title>Registrarse</title>
 </head>
 <body>
@@ -62,21 +63,23 @@ if($_POST){
     //redirigir a pagina de iniciada la sesion
 }else{
     ?>
-    <form name="formulariRegistro" method="POST" action="#" enctype="multipart/form-data" >
-        <label for="dni">dni:   </label >
-            <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>
-        <label for="name">name:   </label >
-            <input type="text"  name="name" maxlength="15" id = "name" required/><br>
-        <label for="surname"> surname:   </label >
-            <input type="text"  name="surname" maxlength="15" id = "surname" required/><br>
-        <label for="passwd"> Password: </label >
-            <input type="password"  maxlength="30" id = "passwd" name="passwd" required /><br>
-        <label for="bornDate"> born date: </label >
-            <input type="date"  maxlength="30" id = "bornDate" name="bornDate" required /><br>
-        <label for="photo"> photo:</label >
-            <input type="file"  name="photo" id = "photo" required/><br>
-        <input type="submit" name="subir" value="Aceptar"/>
-    </form>
+    <div class = "container">    
+        <form name="formulariRegistro" method="POST" action="#" enctype="multipart/form-data" >
+            <label for="dni">dni:   </label >
+                <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>
+            <label for="name">name:   </label >
+                <input type="text"  name="name" maxlength="15" id = "name" required/><br>
+            <label for="surname"> surname:   </label >
+                <input type="text"  name="surname" maxlength="15" id = "surname" required/><br>
+            <label for="passwd"> Password: </label >
+                <input type="password"  maxlength="30" id = "passwd" name="passwd" required /><br>
+            <label for="bornDate"> born date: </label >
+                <input type="date"  maxlength="30" id = "bornDate" name="bornDate" required /><br>
+            <label for="photo"> photo:</label >
+                <input type="file"  name="photo" id = "photo" required/><br>
+            <input type="submit" name="subir" value="Aceptar"/>
+        </form>
+    </div>
     <?php
 }
 ?>    

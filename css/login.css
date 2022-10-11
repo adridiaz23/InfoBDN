@@ -1,0 +1,11 @@
+.container{
+    width: 50%;
+    margin: 0px auto;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+form{
+    
+}

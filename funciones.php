@@ -35,7 +35,7 @@ function viewTeachers($consulta){//de aqui hasta funcion form create teachers qu
 
 function formModifyTeacher($teacher){
     ?>
-    <h2>Modify Teacher</h2>
+    <h2>Modify Teacher</h2> 
     <form name="UpdateTeacher" method="POST" action="#" >
         <label for="name"> name:</label >
             <input type="text"  name="name" maxlength="10" id = "name" required value="<?php echo $teacher[1] ?>"/><br>
@@ -59,7 +59,6 @@ function formModifyTeacher($teacher){
 
 function formCreateTeacher(){
     ?>
-        <h2>Create Teacher</h2>
         <form name="CreateTeacher" method="POST" action="#" enctype="multipart/form-data" >
             <label for="dni"> dni:</label >
                     <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>    
@@ -92,8 +91,22 @@ function createSesion($consulta,$type,$conexion){
     $_SESSION['name'] = $datos[2];
     $_SESSION['type'] = $type;
     mysqli_close($conexion);
-
 }
-
+function headerPrincipal($dosPuntos){
+   if ($dosPuntos == true){
+    $ruta= "../";
+   }else{
+    $ruta ="";
+   }
+    ?>
+    <div id="principal">    
+        <img class="logo" src = "<?php echo $ruta?>img/logo_prueba.png">
+        <img class="redes" src="<?php echo $ruta?>img/yt_transparente.png">
+        <img class="redes" src="<?php echo $ruta?>img/instagram_transparente.png">
+        <img class="redes" src="<?php echo $ruta?>img/tiktok_transparente.png">
+        <img class="redes" src="<?php echo $ruta?>img/twitter_transparente.png">
+    </div>
+    <?php
+}
 
 ?>

@@ -7,6 +7,7 @@ include("funciones.php");?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <body>
@@ -49,10 +50,9 @@ if ($_POST){
                 $consulta = mysqli_query($conexion, $sql);
                     
                 if(mysqli_num_rows($consulta)>0){
-                    echo "jfdkajf";
                     $type = 'Admin';
                     createSesion($consulta,$type,$conexion);
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=sesion.php'/>";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=admin.php'/>";
                 }else{//Si no querrá decir que uno de los campos es erróneo y nos redirigirá a la página de login otra vez
                     print("Contraseña o dni  erróneos");
                     mysqli_close($conexion);
@@ -69,17 +69,19 @@ if ($_POST){
         //mysqli_close($conexion);
     else{//dibujamo form
     ?>
-    <form name="formulariLogin" method="POST" action="#" >
-        <label for="dni">
-            dni:   
-        </label >
-            <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>
-        <label for="Password">
-            Password:
-        </label >
-            <input type="password"  maxlength="30" id = "passwd" name="passwd" required /><br>
-        <input type="submit" name="subir" value="Aceptar"/>
-    </form>
+    <div class = "container">
+        <form name="formulariLogin" method="POST" action="#" >
+            <label for="dni">
+                dni:   
+            </label >
+                <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>
+            <label for="Password">
+                Password:
+            </label >
+                <input type="password"  maxlength="30" id = "passwd" name="passwd" required /><br>
+            <input type="submit" name="subir" value="Aceptar"/>
+        </form>
+    </div>
     <?php
 }
 ?>
