@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php 
 include("funciones.php"); 
+session_start();
 ?>
 <html lang="en">
 <head>
@@ -25,7 +26,27 @@ include("funciones.php");
         <div class="menu1">menu izq</div>
         <div class="nav">buscad</div>
         <div class="menu2">menu dere</div>
-        <div class="content">contenido</div>
+        <div class="content">
+        <?php
+            $conexion = conectar();
+
+            if($conexion == false){
+                mysqli_connect_errno();
+            }
+            else{
+                $sql = "SELECT * FROM courses ";
+                $consulta = mysqli_query($conexion, $sql);
+
+                if ($consulta== false){
+                    mysqli_error($conexion); 
+                }
+                else{
+                    //dibujar tabla
+                    viewCourses($consulta);
+                }
+            }
+        ?>
+        </div>
         <div class="footer">pie</div>  
     </div>
 

@@ -17,6 +17,7 @@
             <?php headerPrincipal(true); ?>
             <div id="sesion"> 
                 <h1>Ver profesores</h1>
+                <div class = "salir-item"><a href="salir.php">Salir</a> </div>
             </div>
         </div>
         <div class="menu1">menu izq</div>

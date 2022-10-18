@@ -20,6 +20,7 @@ session_start();
             <?php headerPrincipal(false); ?>
             <div id="sesion"> 
                 <h1>Teacher</h1>
+                <div class = "salir-item"><a href="salir.php">Salir</a> </div>
             </div>
         </div>
         <div class="menu1">menu izq</div>
@@ -27,7 +28,7 @@ session_start();
         <div class="menu2">menu dere</div>
         <div class="content">
             <?php
-                if($_SESSION['teacher']){
+                if($_SESSION['type']=='Teacher'){
                     $conexion = conectar();
                     if($conexion == false){
                         mysqli_connect_errno();

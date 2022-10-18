@@ -20,6 +20,7 @@ include("../funciones.php")
             <?php headerPrincipal(true); ?>
             <div id="sesion"> 
                 <h1>Crear Cursos</h1>
+                <div class = "../salir-item"><a href="salir.php">Salir</a> </div>
             </div>
         </div>
         <div class="menu1">

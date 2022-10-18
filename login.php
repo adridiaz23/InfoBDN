@@ -43,7 +43,7 @@ if ($_POST){
             if(mysqli_num_rows($consulta)>0){
                 $type = 'Teacher';
                 createSesion($consulta,$type,$conexion);
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=interfaz-teacher.php'/>";
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=interfaz-teachers.php'/>";
             }
             else{
                 $sql = "SELECT * FROM admins WHERE dni = '$dni' AND passwd = '$passwd'";
