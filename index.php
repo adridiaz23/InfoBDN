@@ -42,7 +42,35 @@ session_start();
                 }
                 else{
                     //dibujar tabla
-                    viewCourses($consulta);
+                    //viewCourses($consulta);
+                    $numlinies = mysqli_num_rows($consulta);
+                    echo"<table>";
+                    echo "<tr>";
+                    echo"<th>Code</th>";
+                    echo"<th>Name</th>";
+                    echo "<th>Description</th>";
+                    echo "<th>Hours</th>";
+                    echo "<th>Start Date</th>";
+                    echo "<th>End Date</th>";
+                    echo "<th>Teacher</th>";
+                    echo "</tr>";
+                    for ($i =0 ; $i < $numlinies ; $i++){
+                        $linea = mysqli_fetch_array($consulta);
+                                    
+                        echo "<tr>";
+                        echo "<td>".$linea[0]."</td>";
+                        echo "<td>".$linea[1]."</td>";
+                        echo "<td>".$linea[2]."</td>";
+                        echo "<td>".$linea[3]."</td>";
+                        echo "<td>".$linea[4]."</td>";
+                        echo "<td>".$linea[5]."</td>";
+                        echo "<td>".$linea[6]."</td>";
+                        echo "<td><a href='login.php'>Inscribirme</a></td>";
+                        echo"</tr>";
+                                        
+                    }
+                    echo "</tr>";
+                    echo"</table>"; 
                 }
             }
         ?>

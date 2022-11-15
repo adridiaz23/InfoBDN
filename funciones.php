@@ -25,7 +25,7 @@ function viewTeachers($consulta){//de aqui hasta funcion form create teachers qu
                 echo "<td>".$linea[2]."</td>";
                 echo "<td>".$linea[4]."</td>";
                 echo "<td>".$linea[5]."</td>";
-                echo "<td>".$linea[6]."</td>";
+                ?><td> <img src="teachers/img/<?php echo $linea[6] ?>"> </td> <?php
                 echo "<td><a href='modify-teachers.php?num= ".$linea[0]."'>Modify</a></td>";
                 echo "<td><a href='delete-teachers.php?num= ".$linea[0]."'>Delete</a></td>";
                 echo"</tr>";
@@ -124,7 +124,6 @@ function viewCourses($consulta){
     echo "</tr>";
     for ($i =0 ; $i < $numlinies ; $i++){
         $linea = mysqli_fetch_array($consulta);
-                    
         echo "<tr>";
         echo "<td>".$linea[0]."</td>";
         echo "<td>".$linea[1]."</td>";
@@ -133,18 +132,18 @@ function viewCourses($consulta){
         echo "<td>".$linea[4]."</td>";
         echo "<td>".$linea[5]."</td>";
         echo "<td>".$linea[6]."</td>";
-        if($_SESSION['type']=='Admin'){
+        echo "<td><a href='modify-courses.php?num= ".$linea[0]."'>Modify</a></td>";
+        echo "<td><a href='delete-course.php?num= ".$linea[0]."'>Delete</a></td>";
+        /*if($_SESSION['type']=='Admin'){
             echo "<td><a href='modify-courses.php?num= ".$linea[0]."'>Modify</a></td>";
             echo "<td><a href='delete-course.php?num= ".$linea[0]."'>Delete</a></td>";
         }else if($_SESSION['type']=='Teacher'){
             echo "<td><a href='put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
         }else if($_SESSION['type']=='Student'){
             echo "<td><a href='inscribir-curso.php?num= ".$linea[0]."'>Inscribirme</a></td>";
-        }
-
+        }*/
         echo"</tr>";
-                        
-     }
+    }
     echo "</tr>";
     echo"</table>"; 
 }

@@ -1,4 +1,4 @@
-<?php include("funciones.php");
+<?php include("../funciones.php");
 session_start();?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ session_start();?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View courses</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;700&display=swap" rel="stylesheet"> 
@@ -17,10 +17,10 @@ session_start();?>
         ?>    
         <div class = "grid-container">
             <div class="header">
-                <?php headerPrincipal(false); ?>
+                <?php headerPrincipal(true); ?>
                 <div id="sesion"> 
                     <h1>Ver Cursos</h1>
-                    <div class = "salir-item"><a href="salir.php">Salir</a> </div>
+                    <div class = "salir-item"><a href="../salir.php">Salir</a> </div>
                 </div>
             </div>
             <div class="menu1">menu izq</div>
@@ -34,8 +34,7 @@ session_start();?>
                     mysqli_connect_errno();
                 }
                 else{
-                    $id = $_SESSION['id'];
-                    $sql = "SELECT * FROM courses WHERE teacherID = '$id' ";
+                    $sql = "SELECT * FROM courses ";
                     $consulta = mysqli_query($conexion, $sql);
 
                     if ($consulta== false){
@@ -53,6 +52,7 @@ session_start();?>
                         echo "<th>Hours</th>";
                         echo "<th>Start Date</th>";
                         echo "<th>End Date</th>";
+                        echo "<th>Teacher</th>";
                         echo "</tr>";
                         for ($i =0 ; $i < $numlinies ; $i++){
                             $linea = mysqli_fetch_array($consulta);
@@ -63,7 +63,8 @@ session_start();?>
                             echo "<td>".$linea[3]."</td>";
                             echo "<td>".$linea[4]."</td>";
                             echo "<td>".$linea[5]."</td>";
-                             echo "<td><a href='put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
+                            echo "<td>".$linea[6]."</td>";
+                            echo "<td><a href='put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
                             echo"</tr>";
                         }
                         echo "</tr>";
