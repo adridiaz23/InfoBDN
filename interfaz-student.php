@@ -13,7 +13,7 @@ session_start();?>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <?php if ($_SESSION['type']=='Teacher'){
+    <?php if ($_SESSION['type']=='Student'){
         ?>    
         <div class = "grid-container">
             <div class="header">
@@ -30,12 +30,12 @@ session_start();?>
             <?php
                 $conexion = conectar();
 
+                $idStudent = $_SESSION['dni'];
                 if($conexion == false){
                     mysqli_connect_errno();
                 }
-                else{
-                    $id = $_SESSION['id'];
-                    $sql = "SELECT * FROM courses WHERE teacherID = '$id' ";
+                else{//añadir en el sql cursos a los que no esten inscritos los que esta inscrito no deben aparecer
+                    $sql = "SELECT * FROM courses WHERE code NOT IN (SELECT courses_code FROM marks WHERE student_id = '$idStudent')" ;
                     $consulta = mysqli_query($conexion, $sql);
 
                     if ($consulta== false){
@@ -63,7 +63,7 @@ session_start();?>
                             echo "<td>".$linea[3]."</td>";
                             echo "<td>".$linea[4]."</td>";
                             echo "<td>".$linea[5]."</td>";
-                             echo "<td><a href='courses/put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
+                            echo "<td><a href='courses/inscribir-curso.php?num= ".$linea[0]."'>Inscribirme</a></td>";
                             echo"</tr>";
                         }
                         echo "</tr>";
@@ -71,8 +71,7 @@ session_start();?>
                     }
                 }
             ?>
-            <div class = "admin-items"><a href="create-courses.php">Crear cursos </a> </div>
-            <div class = "admin-items"><a href="../admin.php">Admin Home</a> </div>
+                <div class = "admin-items"><a href="courses/courses-student.php">Mis cursos </a> </div>
             </div>
             <div class="footer">pie</div>  
         </div>

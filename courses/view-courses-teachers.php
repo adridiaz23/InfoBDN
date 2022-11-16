@@ -64,7 +64,7 @@ session_start();?>
                             echo "<td>".$linea[4]."</td>";
                             echo "<td>".$linea[5]."</td>";
                             echo "<td>".$linea[6]."</td>";
-                            echo "<td><a href='put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
+                            echo "<td><a href='../teachers/put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
                             echo"</tr>";
                         }
                         echo "</tr>";

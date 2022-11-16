@@ -45,7 +45,7 @@ if($_POST){
                         
         }else{
             //Si el correo no está registrado, hacemos un insert de los datos introducidos a la base de datos
-            $sql = "INSERT INTO students (id.dni,name,surname, passwd,bornDate,photo) VALUES (NULL,'$dni','$name','$surname','$passwd','$bornDate','$directorio ')";
+            $sql = "INSERT INTO students (id.dni,name,surname, passwd,bornDate,photo) VALUES ('$dni','$dni','$name','$surname','$passwd','$bornDate','$directorio ')";
             //Controlamos que se guarde correctamente.
             if (mysqli_query($conexion, $sql)) {
                     echo "Nuevo Usuario registrado";
@@ -63,7 +63,7 @@ if($_POST){
     //redirigir a pagina de iniciada la sesion
 }else{
     ?>
-    <div class = "container">    
+    <div class = "container">   
         <form name="formulariRegistro" method="POST" action="#" enctype="multipart/form-data" >
             <label for="dni">dni:   </label >
                 <input type="text"  name="dni" maxlength="9" id = "dni" required/><br>
@@ -76,7 +76,7 @@ if($_POST){
             <label for="bornDate"> born date: </label >
                 <input type="date"  maxlength="30" id = "bornDate" name="bornDate" required /><br>
             <label for="photo"> photo:</label >
-                <input type="file"  name="photo" id = "photo" required/><br>
+                <input type="file"  name="photo" id = "photo"  required  /><br>
             <input type="submit" name="subir" value="Aceptar"/>
         </form>
     </div>
