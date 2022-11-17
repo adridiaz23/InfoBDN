@@ -103,10 +103,10 @@ function headerPrincipal($dosPuntos){
     ?>
     <div id="principal">    
         <img class="logo" src = "<?php echo $ruta?>img/logo_prueba.png">
-        <img class="redes" src="<?php echo $ruta?>img/yt_transparente.png">
-        <img class="redes" src="<?php echo $ruta?>img/instagram_transparente.png">
-        <img class="redes" src="<?php echo $ruta?>img/tiktok_transparente.png">
-        <img class="redes" src="<?php echo $ruta?>img/twitter_transparente.png">
+        <a href = "https://www.tiktok.com/@timeitweb" ><img class="redes" src="<?php echo $ruta?>img/yt_transparente.png"> </a>
+        <a href = "https://www.tiktok.com/@timeitweb" ><img class="redes" src="<?php echo $ruta?>img/instagram_transparente.png"></a>
+        <a href = "https://www.tiktok.com/@timeitweb" ><img class="redes" src="<?php echo $ruta?>img/tiktok_transparente.png"></a>
+        <a href = "https://www.tiktok.com/@timeitweb" ><img class="redes" src="<?php echo $ruta?>img/twitter_transparente.png"></a>
     </div>
     <?php
 }

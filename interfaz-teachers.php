@@ -19,13 +19,13 @@ session_start();?>
             <div class="header">
                 <?php headerPrincipal(false); ?>
                 <div id="sesion"> 
-                    <h1>Ver Cursos</h1>
+                    <h1>Mis Cursos</h1>
                     <div class = "salir-item"><a href="salir.php">Salir</a> </div>
                 </div>
             </div>
-            <div class="menu1">menu izq</div>
-            <div class="nav">buscad</div>
-            <div class="menu2">menu dere</div>
+            <div class="menu1"></div>
+            <div class="nav"></div>
+            <div class="menu2"></div>
             <div class="content">
             <?php
                 $conexion = conectar();
@@ -63,7 +63,7 @@ session_start();?>
                             echo "<td>".$linea[3]."</td>";
                             echo "<td>".$linea[4]."</td>";
                             echo "<td>".$linea[5]."</td>";
-                             echo "<td><a href='courses/put-mark.php?num= ".$linea[0]."'>Asignar nota</a></td>";
+                             echo "<td><a href='courses/ver-notas-curso.php?num= ".$linea[0]."'>Ver notas</a></td>";
                             echo"</tr>";
                         }
                         echo "</tr>";
@@ -71,10 +71,9 @@ session_start();?>
                     }
                 }
             ?>
-            <div class = "admin-items"><a href="create-courses.php">Crear cursos </a> </div>
-            <div class = "admin-items"><a href="../admin.php">Admin Home</a> </div>
+            <div class ="admin-items"><a href="courses/ver-todas-notas.php">Ver todas las notas</a> </div>
             </div>
-            <div class="footer">pie</div>  
+            <div class="footer"></div>  
         </div>
     
     <?php

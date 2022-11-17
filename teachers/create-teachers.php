@@ -20,9 +20,9 @@
                 <div class = "salir-item"><a href="../salir.php">Salir</a> </div>
             </div>
         </div>
-        <div class="menu1">menu izq</div>
-        <div class="nav">buscad</div>
-        <div class="menu2">menu dere</div>
+        <div class="menu1"></div>
+            <div class="nav"></div>
+            <div class="menu2"></div>
         <div class="content">
         <?php
             if ($_POST){
@@ -70,7 +70,7 @@
             <div class = "admin-items"><a href="view-teachers.php">Ver Profesores </a> </div>
             <div class = "admin-items"><a href="../admin.php">Admin Home </a> </div>
         </div>
-        <div class="footer">pie</div>  
+        <div class="footer"></div>  
     </div>
     
 </body>

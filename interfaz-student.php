@@ -19,13 +19,13 @@ session_start();?>
             <div class="header">
                 <?php headerPrincipal(false); ?>
                 <div id="sesion"> 
-                    <h1>Ver Cursos</h1>
+                    <h1>Cursos Disponibles                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </h1>
                     <div class = "salir-item"><a href="salir.php">Salir</a> </div>
                 </div>
             </div>
-            <div class="menu1">menu izq</div>
-            <div class="nav">buscad</div>
-            <div class="menu2">menu dere</div>
+            <div class="menu1"></div>
+            <div class="nav"></div>
+            <div class="menu2"></div>
             <div class="content">
             <?php
                 $conexion = conectar();
@@ -71,9 +71,9 @@ session_start();?>
                     }
                 }
             ?>
-                <div class = "admin-items"><a href="courses/courses-student.php">Mis cursos </a> </div>
+                <div class = "admin-items"><a href="courses/mis-cursos-student.php">Mis cursos </a> </div>
             </div>
-            <div class="footer">pie</div>  
+            <div class="footer"></div>  
         </div>
     
     <?php

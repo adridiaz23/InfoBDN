@@ -8,6 +8,7 @@
 </head>
 <body> 
     <?php
+    include("../funciones.php");
     if($_POST){
         if (is_uploaded_file ($_FILES['photo']['tmp_name'])){
             $nombreDirectorio = "img/";

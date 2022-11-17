@@ -56,7 +56,7 @@ if ($_POST){
                 }else{//Si no querrá decir que uno de los campos es erróneo y nos redirigirá a la página de login otra vez
                     print("Contraseña o dni  erróneos");
                     mysqli_close($conexion);
-                    //echo"<META HTTP-EQUIV='REFRESH' CONTENT='1;URL=login.php'/>"; 
+                    echo"<META HTTP-EQUIV='REFRESH' CONTENT='1;URL=login.php'/>"; 
                 
                 }
             }

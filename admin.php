@@ -22,9 +22,9 @@ include("funciones.php");
                 <div class = "salir-item"><a href="salir.php">Salir</a> </div>
             </div>
         </div>
-        <div class="menu1">menu izq</div>
-        <div class="nav">buscad</div>
-        <div class="menu2">menu dere</div>
+        <div class="menu1"></div>
+            <div class="nav"></div>
+            <div class="menu2"></div>
         <div class="content">
             <div class = "admin-items"> <a href="courses/view-courses.php">Ver cursos</a> </div>
             <div class = "admin-items"><a href="courses/create-courses.php">Crear cursos </a> </div>
@@ -32,7 +32,7 @@ include("funciones.php");
             <div class = "admin-items"><a href="teachers/view-teachers.php">Ver profesores</a> </div>
             <div class = "admin-items"><a href="teachers/create-teachers.php">Crear profesores </a> </div>
         </div>
-        <div class="footer">pie</div>  
+        <div class="footer"></div>  
 </div>
 
     <!--<a href="courses/view-courses.php">Ver cursos</a>
